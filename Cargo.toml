@@ -42,6 +42,7 @@ members = ["systest"]
 default = ["ssl"]
 ssl = ["openssl-sys", "openssl-probe", "curl-sys/ssl"] # OpenSSL/system TLS backend
 mesalink = ["curl-sys/mesalink"] # MesaLink TLS backend
+rustls = ["curl-sys/rustls"] # Rustls TLS backend
 http2 = ["curl-sys/http2"]
 spnego = ["curl-sys/spnego"]
 static-curl = ["curl-sys/static-curl"]
@@ -54,6 +55,10 @@ upkeep_7_62_0 = ["curl-sys/upkeep_7_62_0"]
 [[test]]
 name = "atexit"
 harness = false
+
+[[example]]
+name = "https"
+path = "examples/https.rs"
 
 [[example]]
 name = "ssl_proxy"

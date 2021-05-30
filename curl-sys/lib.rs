@@ -2,6 +2,8 @@
 #![doc(html_root_url = "https://docs.rs/curl-sys/0.3")]
 
 // These `extern crate` are required for conditional linkages of curl.
+#[cfg(feature = "rustls")]
+extern crate crustls;
 #[cfg(link_libnghttp2)]
 extern crate libnghttp2_sys;
 #[cfg(link_libz)]

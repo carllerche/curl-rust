@@ -251,6 +251,10 @@ fn main() {
         } else {
             cfg.define("HAVE_UNIX", None);
         }
+    } else if cfg!(feature = "rustls") {
+        cfg.define("USE_RUSTLS", None)
+            .file("curl/lib/vtls/rustls.c")
+            .include(env::var_os("DEP_CRUSTLS_INCLUDE").unwrap());
     } else if cfg!(feature = "ssl") {
         if windows {
             cfg.define("USE_WINDOWS_SSPI", None)
